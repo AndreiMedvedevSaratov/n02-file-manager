@@ -5,5 +5,9 @@
 	"main": "index.js",
 	"repository": "https://github.com/AndreiMedvedevSaratov/n02-file-manager.git",
 	"author": "AndreiMedvedevSaratov <andreiok@gmail.com>",
-	"license": "MIT"
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "node index.js --username=GreatAndrei"
+	}
 }
