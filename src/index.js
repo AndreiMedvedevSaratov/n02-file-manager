@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { createInterface } from 'readline';
 
 import { osInfo } from './utils/osInfo.js';
+import { hashCalculation } from './utils/hashCalculation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +26,10 @@ const app = async () => {
 	mainInterface.on('line', (line) => {
 		if (line.startsWith('os ')) {
 			osInfo(line.split('--')[1]);
+		}
+
+		if (line.startsWith('hash ')) {
+			hashCalculation(line.slice(5));
 		}
 
 		console.log('You are currently in ' + process.cwd());

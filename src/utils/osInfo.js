@@ -13,11 +13,12 @@ export function osInfo(argument) {
 
 		cpusInfo.forEach(item =>
 			console.log(`model: ${item.model}, speed rate: ${item.speed / 1000}GHz`)
-		)
+		);
 	};
 
 	if (!argument) {
 		console.log('Invalid input\n');
+		
 		return;
 	}
 }
