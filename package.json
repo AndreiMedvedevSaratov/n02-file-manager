@@ -8,6 +8,6 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"start": "node index.js --username=GreatAndrei"
+		"start": "node src/index.js --username=GreatAndrei"
 	}
 }
