@@ -6,6 +6,7 @@ import { createInterface } from 'readline';
 import { osInfo } from './utils/osInfo.js';
 import { hashCalculation } from './utils/hashCalculation.js';
 import { list } from './utils/list.js';
+import { readFile } from './utils/readFile.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,17 +26,23 @@ const app = async () => {
 	const mainInterface = createInterface(stdin, stdout);
 
 	mainInterface.on('line', (line) => {
-		if (line.startsWith('os')) {
-			osInfo(line.split('--')[1]);
-		}
+		try {
+			if (line.startsWith('os')) {
+				osInfo(line.split('--')[1]);
+			}
 
-		if (line.startsWith('hash')) {
-			hashCalculation(line.slice(5));
-		}
+			if (line.startsWith('hash')) {
+				hashCalculation(line.slice(5));
+			}
 
-		if (line.startsWith('ls')) {
-			list();
-		}
+			if (line.startsWith('ls')) {
+				list();
+			}
+
+			if (line.startsWith('cat')) {
+				readFile(line.slice(4));
+			}
+		} catch(err) {}
 
 		console.log('You are currently in ' + process.cwd());
 	});
