@@ -10,6 +10,7 @@ import { readFile } from './utils/readFile.js';
 import { addFile } from './utils/addFile.js';
 import { renameFile } from './utils/renameFile.js';
 import { copyFile } from './utils/copyFile.js';
+import { deleteFile } from './utils/deleteFile.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -56,6 +57,10 @@ const app = async () => {
 
 			if (line.startsWith('cp')) {
 				copyFile(line.slice(3));
+			}
+
+			if (line.startsWith('rm')) {
+				deleteFile(line.slice(3));
 			}
 		} catch (err) {
 			console.log(err)
