@@ -80,11 +80,8 @@ const app = async () => {
 		// console.log('You are currently in ' + process.cwd());
 	});
 
-
-
-	// stdin.on('data', data => console.log(data));
-
-	// process.on('exit', code => console.log(code));
+	process.on('SIGINT', () => { process.exit(); });
+	process.on('exit', () => stdout.write(`Thank you for using File Manager!`));
 }
 
 await app();
