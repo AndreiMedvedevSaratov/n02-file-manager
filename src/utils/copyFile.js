@@ -10,10 +10,6 @@ export async function copyFile(args) {
 		return;
 	}
 
-	if (argsArr === 'err') {
-		console.log('Operation failed.');
-	}
-
 	const [ sourceFile, destinationDirectory ] = argsArr;
 
 	try {
