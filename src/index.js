@@ -7,6 +7,7 @@ import { osInfo } from './utils/osInfo.js';
 import { hashCalculation } from './utils/hashCalculation.js';
 import { list } from './utils/list.js';
 import { readFile } from './utils/readFile.js';
+import { addFile } from './utils/addFile.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,7 +43,13 @@ const app = async () => {
 			if (line.startsWith('cat')) {
 				readFile(line.slice(4));
 			}
-		} catch(err) {}
+
+			if (line.startsWith('add')) {
+				addFile(line.slice(4));
+			}
+		} catch (err) {
+			console.log(err)
+		}
 
 		console.log('You are currently in ' + process.cwd());
 	});
