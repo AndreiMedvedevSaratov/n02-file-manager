@@ -8,6 +8,7 @@ import { hashCalculation } from './utils/hashCalculation.js';
 import { list } from './utils/list.js';
 import { readFile } from './utils/readFile.js';
 import { addFile } from './utils/addFile.js';
+import { renameFile } from './utils/renameFile.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,6 +47,10 @@ const app = async () => {
 
 			if (line.startsWith('add')) {
 				addFile(line.slice(4));
+			}
+
+			if (line.startsWith('rn')) {
+				renameFile(line.slice(3));
 			}
 		} catch (err) {
 			console.log(err)
